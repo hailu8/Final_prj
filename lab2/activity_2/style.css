@@ -1,0 +1,165 @@
+
+
+body {
+    font-family: "Open Sans";
+}
+
+#main {
+    margin: 10px 20px;
+}
+
+text.label {
+    text-anchor: middle;
+    font-size: 11px;
+    fill: #555;
+    font-family: sans-serif;
+}
+
+.axis text {
+    fill: #555;
+}
+
+.axis line,
+.axis path {
+    stroke: #555;
+}
+
+text.title {
+    text-anchor: middle;
+    font-size: 14px;
+    fill: #333;
+}
+#backgroundImage {
+    border: none;
+    height: 100%;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 14%;
+}
+
+td,
+th {
+    text-align: center;
+    border: 1px solid #070606;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #fdf9f9;
+}
+
+#t01 th {
+    background-color: rgb(221, 27, 27);
+    color: white;
+}
+
+#t01 {
+    position: absolute;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    top: 28%;
+    left: 0.5%;
+    bottom: 0px;
+    width: 300px;
+}
+
+#t02 th {
+    background-color: rgb(221, 27, 27);
+    color: white;
+}
+
+#t02 {
+    position: absolute;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 0.5%;
+    width: 300px;
+    bottom: 0px;
+}
+
+.rows input[type=text] {
+    width: 300px;
+    color: #464141;
+    height: 25px;
+    font-size: 14px;
+    border-radius: 25px;
+    border: 13px;
+}
+
+.rows {
+    position: absolute;
+    border: 1px solid rgb(22, 22, 22);
+    left: 17%;
+    top: 10%;
+    /* float: center; */
+    margin: 100px;
+    width: fit-content;
+}
+
+.searchs button {
+    background-color: #0074D9;
+    color: #f2f2f2;
+    float: center;
+    padding: 5px 10px;
+    margin-right: 1px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+}
+
+.title {
+    position: absolute;
+    left: 20%;
+}
+
+.img-responsive {
+    position: absolute;
+    left: 15%;
+    width: 60%;
+}
+
+.logo {
+    position: absolute;
+    left: 1%;
+    width: 30%;
+    height: 40%;
+}
+
+.page {
+    /* label: rounded; */
+    background-color: lightgray;
+    margin-right: -10;
+    float: left;
+}
+/* .rectangle {
+    position: absolute;
+    border: 1px solid rgb(22, 22, 22);
+    height: 540px;
+    width: 550px;
+    top: 28%;
+    left: 15%;
+    background-color: rgb(221, 220, 220);
+}
+*/
+
+.rectanglechart {
+    position: absolute;
+    border: 1px solid rgb(22, 22, 22);
+    height: 540px;
+    width: 1170px;
+    top: 28%;
+    left: 17%;
+    background-color: rgb(221, 220, 220);
+}

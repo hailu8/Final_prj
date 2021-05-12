@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 2 - Scatterplot</title>
+    <link rel="stylesheet" href="style.css">
+    <div class="margin-bottom-20">
+        <p><img alt="Student Newspaper Banner" class="img-responsive" src="student-newspaper-banner.png"></p>
+    </div>
+    <div class="logo">
+        <p><img alt="Student Newspaper Banner" class="logo" src="logo.png"></p>
+    </div>
+    <div class="rows">
+        <div class="searchs" ; id="search">
+            <form action="/student-newspapers/search/facet" method="get">
+                <div class="input-group"><input class="form-control" name="query" placeholder="Search keywords, names, article titles, and more" style="overflow: hidden; text-overflow: ellipsis;" type="text"> <span class="input-group-btn"><button class="btn btn-sm btn-default" type="submit">Search</button> </span></div>
+            </form>
+        </div>
+    </div>
+    <!-- <script>
+        d3.selectAll(".btn").on("click", function() {
+            console.log(d3.selectAll(".form-control").node().value)
+        });
+    </script> -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="table-responsive">
+                <table class="table table-bordered" ; id="t01">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Newspaper Title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form id="PaperOption" class="radiobutton">
+                                    <input type="radio" id="radioall" name="TypeRadio" value="All" checked="checked">
+                                    <label for="radioath"> All  </label> <br> <br>
+                                    <input type="radio" id="radiobe" name="TypeRadio" value="Black_Explosion">
+                                    <label for="radioath">Black Explosion </label> <br> <br>
+                                    <input type="radio" id="radiomh" name="TypeRadio" value="Mitzpeh">
+                                    <label for="radioath">Mitzpeh  </label> <br>
+                                </form>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row_2">
+            <div class="col-md-4">
+                <div class="table-responsive_2">
+                    <table class="table_2" ; id="t02">
+                        <thead>
+                            <tr>
+                                <th scope="col_2"> Papers of the week</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="list-unstyled checkbox-list" ; style="font-size:70%;font-family: Georgia, serif;">
+
+                                    <div class="umd-student-newspapers-search-record search-record">
+                                        <span class="page">Page</span> <br>
+                                        <div class="overflow-h">
+                                            <a href="https://digital.lib.umd.edu/student-newspapers/id/80da787f-3d10-452f-9ea6-a0b2fca32062?relpath=pcdm&amp;query=news">Maryland state review (College Park, Md.), 1919-05-15, page 1</a>
+
+                                            <a href="https://digital.lib.umd.edu/student-newspapers/id/80da787f-3d10-452f-9ea6-a0b2fca32062?relpath=pcdm&amp;query=news"></a>
+                                            <div>
+
+                                            </div>
+                                            <div class="search-snippet">
+                                                Farmers’ Day is on May 30th. Sevieral of the Clubs have<br> al­ ready spread the news through­ out their counties,<br> the Washing­ … rope could be procured. <br>A representative of the Inter­national <br>News
+                                                Service was on hand <br>with his camera to film the <br>struggle, but … as alternate. <br>The speak­ers for the negative<br> were R. Stone, jr., and C. W. Cole, <br>repre­senting the New Mercer Liter­ary
+                                                <br>
+                                                <br>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="umd-student-newspapers-search-record search-record">
+                                        <span class="page">Page</span> <br>
+                                        <div class="overflow-h">
+                                            <a href="https://digital.lib.umd.edu/student-newspapers/id/113343bc-5d2a-472c-a4b8-e6d777783b11?relpath=pcdm&amp;query=news">Maryland state review (College Park, Md.), 1919-05-15, page 2</a>
+
+                                            <a href="https://digital.lib.umd.edu/student-newspapers/id/113343bc-5d2a-472c-a4b8-e6d777783b11?relpath=pcdm&amp;query=news"></a>
+                                            <div>
+
+                                            </div>
+                                            <div class="search-snippet">
+                                                Athletics R. STONE, Jr Contributing Editor C. P. WILHELM <br> News Editor REPORTERS E. K. Morgan. <br> Elizabeth G, Hook. E. F. Russell C. E. Darnall. … <br> A collection is being taken up <br> by the girls
+                                                at Gerneaux Hall to invest in some <br> new headgear for “Cicero” Ady. Since … the <br>remainder of the year so there <br> will be no call for the sponge at the very start of the <br> new year. *** <br>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+</head>
+<body>
+    <div id="main">
+        <svg width="720" height="400" style="border: 1px solid #777;">
+        </svg>
+    </div>
+</body>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="./scatterplot.js"></script>
+</html>
