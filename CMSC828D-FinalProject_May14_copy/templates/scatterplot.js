@@ -1,9 +1,9 @@
-function server_call(end_point){
-    let url = new URL("http://localhost:8000/" + end_point);
-    url.search = new URLSearchParams().toString();
-    return fetch(url,{"credentials": "same-origin"})
-        .then(response => response.json())
-}
+// function server_call(end_point){
+//     let url = new URL("http://localhost:8000/" + end_point);
+//     url.search = new URLSearchParams().toString();
+//     return fetch(url,{"credentials": "same-origin"})
+//         .then(response => response.json())
+// }
 
 var Paper = 'all';
 var dt_from = "1970/05/04";
@@ -37,7 +37,7 @@ url_dif.search = new URLSearchParams().toString();
             .then(response => response.json())
             .then(Datas => {
                 d1= Datas;
-                console.log(d1);
+                // console.log(d1);
                 UpdateScatterplot(d1,1970,2015);
 
 });
@@ -90,13 +90,13 @@ for (var i = 0; i < SelectPaperBtn.length; i++) {
             console.log(Paper);
             time_from = document.getElementById('ranges');
             var spans = time_from.getElementsByTagName("span");
+            
             dt_cur_from = spans[0].innerHTML;
             dt_cur_to = spans[1].innerHTML;
-            // console.log(dt_cur_from);
+         
             dt_cur_from = new Date (dt_cur_from);
             dt_cur_to  = new Date (dt_cur_to);
-            // console.log(typeof dt_cur_from);
-            // console.log(dt_cur_from);
+     
 
             let url = new URL("http://localhost:8000/get-paper-date-range/"+ Paper  + "/" + formatDT(dt_cur_from) + "/" + formatDT(dt_cur_to));
             url.search = new URLSearchParams().toString();
@@ -141,51 +141,49 @@ for (var i = 0; i < SelectPaperBtn.length; i++) {
                 .then(Datas => {
                     d1= Datas;
                     //console.log(d1);
-                    // let mn = 1970;
-                    // let mx = 2015;
                     let mn = dt_cur_from.getFullYear();
                     let mx = dt_cur_to.getFullYear(); 
                     console.log(mn);
                     console.log(mx);
-                    // console.log(mn);
-                    // console.log(mx);
                 UpdateScatterplot(d1,mn, mx);
             })
         
             
         } else {
-            var dt_from = "1983/09/01";
-            var dt_to= "2015/11/05";
+            // var dt_from = "1983/09/01";
+            // var dt_to= "2015/11/05";
 
-            $('.slider-time').html(dt_from);
-            $('.slider-time2').html(dt_to);
-            min_val = Date.parse(dt_from)/1000;
-            max_val = Date.parse(dt_to)/1000;
+            // $('.slider-time').html(dt_from);
+            // $('.slider-time2').html(dt_to);
+            // min_val = Date.parse(dt_from)/1000;
+            // max_val = Date.parse(dt_to)/1000;
 
-            // time_from = document.getElementById('ranges');
-            // var spans = time_from.getElementsByTagName("span");
+            time_from = document.getElementById('ranges');
+            var spans = time_from.getElementsByTagName("span");
             
-            // dt_cur_from = spans[0].innerHTML;
-            // dt_cur_to = spans[1].innerHTML;
+            dt_cur_from = spans[0].innerHTML;
+            dt_cur_to = spans[1].innerHTML;
             
-            // dt_cur_from = new Date (dt_cur_from);
-            // dt_cur_to  = new Date (dt_cur_to);
+            dt_cur_from = new Date (dt_cur_from);
+            dt_cur_to  = new Date (dt_cur_to);
 
-            Paper = "mitzpeh";
+            Paper = "Mitzpeh";
             console.log('Mitzpeh');
             console.log(Paper);
-            // let url = new URL("http://localhost:8000/get-paper-date-range/"+ Paper  + "/" + formatDT(dt_cur_from) + "/" + formatDT(dt_cur_to));
-            let url = new URL("http://localhost:8000/get-paper-date-range/" + Paper  + "/" +"2011-11-01/2015-11-05");
+            let url = new URL("http://localhost:8000/get-paper-date-range/"+ Paper  + "/" + formatDT(dt_cur_from) + "/" + formatDT(dt_cur_to));
+            // let url = new URL("http://localhost:8000/get-paper-date-range/" + Paper  + "/" +"2011-11-01/2015-11-05");
             url.search = new URLSearchParams().toString();
             fetch(url,{"credentials": "same-origin"})
                 .then(response => response.json())
                 .then(Datas => {
                     d1= Datas;
                     //console.log(d1);
-                    let mn = 2011;
-                    let mx = 2015;
-                    // console.log(mn);
-                    // console.log(mx);
+                    // let mn = 2011;
+                    // let mx = 2015;
+                    let mn = dt_cur_from.getFullYear();
+                    let mx = dt_cur_to.getFullYear(); 
+                    console.log(mn);
+                    console.log(mx);
                     UpdateScatterplot(d1,mn, mx);
             })
         
@@ -246,20 +244,7 @@ function UpdateScatterplot(Data, mn, mx){
         .attr('class', 'label')
         .attr('transform','translate(0,450) rotate(90)')
         .text('Word Count');
-        // let urls = new URL("http://localhost:8000/get-data/" + 10);
-        // urls.search = new URLSearchParams().toString();
-        // fetch(urls,{"credentials": "same-origin"})
-        // .then(response => response.json())
-        // .then(Data2 => {
-        //     d2 = Data2
-    // svg.append('text')
-    //     .attr('class', 'title')
-    //     .attr('transform','translate(460,30)')
-    //     .text('Student-newspaper');
 
-    var tooltip = d3.tip()
-    .attr("class", "d3-tip")
-    .offset([-10, -10])
     groups = svg.selectAll("circle")
     .data(Data)
     .enter()
@@ -268,7 +253,7 @@ function UpdateScatterplot(Data, mn, mx){
     .attr('transform', function(d){
         return 'translate('+scaleYear(d.year) +','+ scaleHomeruns(d.word_count) +')'
     });
-    svg.call(tooltip);
+    // svg.call(tooltip);
     groups.append('circle')
             .attr("cx", function(d) {
                 return d.yearScale;
@@ -290,21 +275,8 @@ function UpdateScatterplot(Data, mn, mx){
                     $('.title_div').html(d2.title);
                     $('.body_div').html(d2.body);
                     $('.paper_div').html(d2.paper);
-                    // console.log('d2');
-                    // console.log(d2);
-                    // console.log(d2.id);
-                    // tooltip
-                    // .html(function(d) {
-                    //     return "<div style='background-color:steelblue; color:white; width:1100px; height: 700px';> Title: "+d2.title +"<br>Body: "+d2.body + "<br>Paper: "+d2.paper;
-                    // });
-                    
-                    // tooltip.show;
                 })
             });
-            // .on("mouseout", tooltip.hide);
 
 
 }
-
-            
-            
