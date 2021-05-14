@@ -1,0 +1,118 @@
+Version 10:00 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CMSC828D-Final Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- jQuery library -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script type='text/javascript' src='//code.jquery.com/jquery-2.0.2.js'></script>
+  <script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <style> 
+    div.tooltip {
+    color: white;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: rgba(0,0,0,.8);
+    border: 2px solid black;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+    <div class="jumbotron" style="margin-bottom:0"></div>
+​
+    <nav class="navbar navbar-dark">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search keywords" aria-label="Search">
+        <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </nav>
+​
+    <div class="container-fluid" style="margin-top:30px">
+    <div class="row">
+        <div class="col-sm-2">
+        <div class="card">
+            <div class="card-header bg-danger">Newspaper Title</div>
+            <div class="card-body">
+            <div class="form-check">
+                <form id="Radio_Type">
+                    <input type="radio" name="Paper_type_radio"  value="All" checked> All <br>
+                    <input type="radio" name="Paper_type_radio"  value="Black_Explosion" > Black Explosion <br>
+                    <input type="radio" name="Paper_type_radio"  value="Mitzpeh" > Mitzpeh <br>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="papers-of-week card overflow-auto">
+            <div class="card-header bg-danger">Papers of the week</div>
+            <div class="papers-of-week-body card-body">
+            <span class="page">Page</span><br>
+            <div>
+                <a href="https://digital.lib.umd.edu/student-newspapers/id/80da787f-3d10-452f-9ea6-a0b2fca32062?relpath=pcdm&amp;query=news">Maryland state review (College Park, Md.), 1919-05-15, page 1</a>
+                <div>
+                Farmers’ Day is on May 30th. Sevieral of the Clubs have al­ready spread the news through­ out their counties, the Washing­ … rope could be procured. A representative of the Inter­national News
+                Service was on hand with his camera to film the struggle, but … as alternate. The speak­ers for the negative were R. Stone, jr., and C. W. Cole, repre­senting the New Mercer Liter­ary.
+                </div>
+            </div>
+            <span class="page">Page</span><br>
+            <div>
+                <a href="https://digital.lib.umd.edu/student-newspapers/id/80da787f-3d10-452f-9ea6-a0b2fca32062?relpath=pcdm&amp;query=news">Maryland state review (College Park, Md.), 1919-05-15, page 1</a>
+                <div>
+                Farmers’ Day is on May 30th. Sevieral of the Clubs have al­ready spread the news through­ out their counties, the Washing­ … rope could be procured. A representative of the Inter­national News
+                Service was on hand with his camera to film the struggle, but … as alternate. The speak­ers for the negative were R. Stone, jr., and C. W. Cole, repre­senting the New Mercer Liter­ary.
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <!-- <div class="card-header bg-danger">How to explore the dashboard</div>
+                <div class="card-body">The scatter plot shows the newspapers in each year. You can click on them to see their content on this container. You can also filter the word count of shown articles using the slider.</div> -->
+                <p>Title: <span class="title_div"></span> </p>
+                <p>Body: <span class="body_div"></span> </p>
+                <p>Paper: <span class="paper_div"></span> </p>
+               
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div id="main">
+                <!-- <svg> </svg> -->
+                <svg width="1290px" height="1000" style="border: 1px solid #777;"></svg>
+            </div>
+            <div id="universe">
+                <div id="slider" class="multi-range-slider"></div>
+                
+                <div id="time-range" style = "width:50%">
+                    </p>
+                    <div class="sliders_step1">
+                        <div id="slider-range"></div>
+                    </div>
+                    <p id="ranges">Time Range: <span class="slider-time"></span> - <span class="slider-time2"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> 
+</body>
+<script src="scatterplot.js"></script>
+<script src="../static/d3-tip.js"></script>
+</html>
